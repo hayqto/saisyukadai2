@@ -1,0 +1,26 @@
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: "Segoe UI", sans-serif;
+    background: linear-gradient(to right, #e0f7fa, #fffde7);
+    color: #333;
+}
+
+img {
+    width: 300px;
+    height: 250px;
+}
+
+.bg-aqua {
+    background-color: aqua;
+}
+
+.text-brown {
+    color: brown;
+}
+
+span {
+
+    border: 2px dotted green;
+
+}
