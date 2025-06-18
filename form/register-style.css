@@ -1,0 +1,65 @@
+@charset "utf-8";
+body {
+  font-family: sans-serif;
+  background: #f0f0f0;
+  padding: 20px;
+}
+
+.form-container {
+  max-width: 700px;
+  margin: auto;
+  background: #fff;
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
+fieldset {
+  border: 2px solid #999;
+  padding: 20px;
+}
+
+legend {
+  font-weight: bold;
+  padding: 0 10px;
+}
+
+.form-row {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.label-box {
+  width: 200px;
+  padding: 10px;
+  background: #f9f9f9;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  font-weight: bold;
+}
+
+.form-row input,
+.form-row textarea {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.required {
+  color: red;
+  font-size: 0.9em;
+  margin-left: 4px;
+}
+.address-row {
+  align-items: flex-start;
+}
+.address-row {
+  align-items: flex-start;
+}
+
+.address-fields {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 6px;
+}

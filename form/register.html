@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <link rel="stylesheet" href="register-style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登録フォーム</title>
+</head>
+
+<body>
+    <form action="#" method="post" enctype="multipart/form-data"></form>
+    <class="form-group">
+        <p>必要事項を入力の上、送信ボタンを押してください。</p>
+
+        <body>
+            <form>
+                <fieldset>
+
+                    <div class="form-row">
+                        <label>ID（メールアドレス）<span class="required">必須</span></label>
+                        <input type="email" name="mail" placeholder="例：xxx@morijyobi.ac.jp">
+                    </div>
+
+                    <div class="form-row">
+                        <label>
+                            <label>氏名<span class="required">必須</span></label>
+                            パスワード<input type="password" name="pass" size="30" minlength="8">
+                            <input type="checkbox" name="kakunin">パスワードを表示する
+                        </label>
+                    </div>
+
+                    <div class="form-row">
+                        <label>氏名<span class="required">必須</span></label>
+                        姓:<input type="text" name="sei" placeholder="例:盛岡">
+                        名:<input type="text" name="mei" placeholder="例:太郎"></label>
+                    </div>
+
+                    <div class="form-row address-row">
+                        <label>住所</label>
+                        <div class="address-fields">
+                            <input type="text" name="yubin" placeholder="〒020-0021" readonly>
+                            <input type="text" name="jyusyo" placeholder="岩手県盛岡市中央通３丁目" readonly>
+                            <input type="text" name="banti" placeholder="番地">
+                            <input type="text" name="kenntiku" size="30" placeholder="建物名">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <label>携帯電話番号<span class="required">必須</span></label>
+                        <input type="tel" name="tel" placeholder="例：090-0000-0000">
+                    </div>
+
+                    <div class="form-row">
+                        <label>学科・学年<span class="required">必須</span></label>
+                        <select>
+                            <option>学科を選択してください</option>
+                            <option>システム系学科</option>
+                            <option>ビジネス系学科</option>
+                            <option>デザイン系学科</option>
+                        </select>
+                        <select>
+                            <option>学年を選択してください</option>
+                            <option>1年</option>
+                            <option>2年</option>
+                            <option>3年</option>
+                            <option>4年</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row">
+                        <label>お得な情報・クーポン<span class="required">必須</span></label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="coupon"> 受け取る</label>
+                            <label><input type="radio" name="coupon"> 受け取らない</label>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <label>ご意見・ご要望</label>(200文字以内でご記入ください)
+                        <textarea rows="10" cols="50" maxlength="200"></textarea>
+                    </div>
+
+                    <div class="form-row buttons">
+                        <button type="reset">入力内容をクリアする</button>
+                        <button type="submit">送信</button>
+                    </div>
+
+                </fieldset>
+            </form>
+        </body>
+
+</html>
+
+
+</div>
+
+
+
+
+</body>
+
+</html>
