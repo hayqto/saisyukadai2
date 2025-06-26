@@ -2,3 +2,6 @@
 a{
      font-size: 0.8rem;
 }
+input,label,fieldset{
+     margin: 5px 0;
+}
