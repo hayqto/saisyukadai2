@@ -1,0 +1,49 @@
+@charset "uft-8";
+h2{
+    text-align: center;
+}
+
+main {
+  max-width: 600px;
+  margin: 20px auto;
+  
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+ul img {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  margin: 10px auto;
+  border-radius: 10px;
+  
+}
+
+body{
+  background-color:aliceblue;
+}
+h1{
+  text-align: center;
+}
+li{
+  text-decoration:underline;
+}
+ul{
+  list-style-image: url(../favicon\ \(3\).ico);
+}

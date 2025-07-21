@@ -1,0 +1,39 @@
+@charset "uft-8";
+main{
+    width: 50%;
+    margin: 0 auto;
+}
+.frame{
+    margin-bottom: 2rem;
+}
+.float-left{
+    width: 50%;
+    margin: 0 1rem;
+}
+h1{
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+}
+.float-left{
+    width: 50%;
+    margin: 0 1rem;
+    float: left;
+}
+.frame{
+    margin-bottom: 2rem;
+    display: flow-root;
+}
+.fram p{
+    line-height: 1.6;
+    letter-spacing: 0.05em;
+}
+h2{
+    border-bottom: 1px solid#000;
+    display: inline-block;
+}
+h3{
+    text-align: center;
+}

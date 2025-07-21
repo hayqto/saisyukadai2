@@ -1,0 +1,21 @@
+@charset "uft-8";
+
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: "Segoe UI", sans-serif;
+    background: linear-gradient(to right, #e0f7fa, #fffde7);
+    color: #333;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+table,
+th,
+td {
+    border: solid 1px cadetblue;
+    border-collapse: collapse;
+}

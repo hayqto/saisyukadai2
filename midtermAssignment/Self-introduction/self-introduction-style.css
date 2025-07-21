@@ -1,0 +1,15 @@
+/*記述済みの部分は変更しないでください！*/
+
+@charset "utf-8";
+ h3 {
+  margin-top: 1.5rem;
+  font-size: 1.2rem;
+  color: #004488;
+}
+ p {
+  margin: 0.5rem 0 1rem 0;
+  line-height: 1.7;
+  text-align: justify;
+  text-justify: inter-ideograph;
+}
+
