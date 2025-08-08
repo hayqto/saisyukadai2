@@ -1,0 +1,87 @@
+@charset "utf-8";
+
+h3 {
+    text-align: center;
+  font-size: 1.6rem;
+  font-weight: bold;
+  color:red;
+  padding-left: 10px;
+  margin: 30px 0 15px;
+
+
+}
+
+
+/* タイトル（階級） */
+.champion h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.8rem;
+    color: #333;
+}
+
+/* 画像 */
+.champion .img img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+    margin-bottom: 0.8rem;
+}
+
+/* 名前のテキスト */
+.champion p {
+    margin: 0.3rem 0;
+    font-size: 0.95rem;
+    color: #444;
+}
+
+.champion-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2px;
+    padding: 0;
+    margin: 0;
+}
+
+.champion {
+    width: 200px;
+    padding: 1rem;
+    /* margin 削除か最小限に */
+    margin: 50px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    background-color: #fff;
+}
+
+.champion-rekidai {
+    margin-top: 1rem;
+    text-align: left;
+    font-size: 0.85rem;
+    color: #333;
+}
+
+.champion-rekidai h5 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: #222;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 0.3rem;
+}
+
+.champion-rekidai ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.champion-rekidai li {
+    margin-bottom: 0.3rem;
+}
+
+main {
+    margin-left: 200px;
+    padding: 20px;
+}

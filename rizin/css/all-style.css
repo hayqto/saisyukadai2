@@ -1,0 +1,53 @@
+@charset "utf-8";
+
+.sidebar {
+  position: fixed;
+  /* 固定表示 */
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 100vh;
+  /*ビューポートの高さに対する相対的な単位*/
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+  box-sizing: border-box;
+  border-right: 1px solid #000;
+  background-color: transparent;
+
+}
+
+
+.sidebar nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.sidebar nav ul li {
+  border-bottom: 1px solid #000;
+}
+
+.sidebar nav ul li a {
+  display: block;
+  padding: 20px 0;
+  text-align: center;
+  text-decoration: none;
+  font-weight: normal;
+  color: black;
+  font-size: 1.1rem;
+}
+
+.sidebar nav ul li a.active,
+/*動きをつける疑似クラス使用*/
+.sidebar nav ul li a:hover {
+  background-color: transparent;
+  font-style: italic;
+  font-weight: bold;
+}
+
+body {
+  background-color: aliceblue
+}

@@ -1,0 +1,70 @@
+@charset "utf-8";
+nav{
+    background-color: #f0f0f0;
+  color: #333;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  transition: background-color 0.3s ease;  /*カードに動きをつける*/
+  cursor: pointer;
+  margin: 10px 0;
+}
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+header {
+  background-color: #e60012;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+.fighter-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+  gap: 20px;
+}
+
+.fighter-card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  width: 250px;
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.fighter-card:hover {
+  transform: scale(1.05);
+}
+
+.fighter-card img {
+  width: 200px;       
+    height: 200px;      
+    object-fit: cover;  
+    border-radius: 10px; 
+}
+
+.fighter-card h2 {
+  margin-top: 10px;
+  color: #e60012;
+}
+
+.fighter-card p {
+  font-size: 14px;
+  line-height: 1.5;
+}
+h1{
+  text-align: center;
+  color: #e60012;
+}
