@@ -26,7 +26,7 @@
                         <label>
                             <label>氏名<span class="required">必須</span></label>
                             パスワード<input type="password" name="pass" size="30" minlength="8">
-                            <input type="checkbox" name="kakunin">パスワードを表示する
+                            <label><input type="checkbox" name="kakunin">パスワードを表示する</label>
                         </label>
                     </div>
 
@@ -39,8 +39,8 @@
                     <div class="form-row address-row">
                         <label>住所</label>
                         <div class="address-fields">
-                            <input type="text" name="yubin" placeholder="〒020-0021" readonly>
-                            <input type="text" name="jyusyo" placeholder="岩手県盛岡市中央通３丁目" readonly>
+                            <input type="text" name="readonly" value="〒020-0021" readonly >
+                            <input type="text" name="readonly" value="岩手県盛岡市中央通３丁目" readonly>
                             <input type="text" name="banti" placeholder="番地">
                             <input type="text" name="kenntiku" size="30" placeholder="建物名">
                         </div>
@@ -70,8 +70,8 @@
                     <div class="form-row">
                         <label>お得な情報・クーポン<span class="required">必須</span></label>
                         <div class="radio-group">
-                            <label><input type="radio" name="coupon"> 受け取る</label>
-                            <label><input type="radio" name="coupon"> 受け取らない</label>
+                            <label><input type="radio" name="coupon" value="">受け取る </label>
+                            <label><input type="radio" name="coupon" value=""> 受け取らない</label>
                         </div>
                     </div>
                     <div class="form-row">
