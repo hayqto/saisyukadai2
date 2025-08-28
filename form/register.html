@@ -24,8 +24,8 @@
 
                     <div class="form-row">
                         <label>
-                            <label>氏名<span class="required">必須</span></label>
-                            パスワード<input type="password" name="pass" size="30" minlength="8">
+                            <label>パスワード<span class="required">必須</span></label>
+                            <input type="password" name="pass" size="30" minlength="8">
                             <label><input type="checkbox" name="kakunin">パスワードを表示する</label>
                         </label>
                     </div>
@@ -39,7 +39,7 @@
                     <div class="form-row address-row">
                         <label>住所</label>
                         <div class="address-fields">
-                            <input type="text" name="readonly" value="〒020-0021" readonly >
+                            <input type="text" name="readonly" value="〒020-0021" readonly>
                             <input type="text" name="readonly" value="岩手県盛岡市中央通３丁目" readonly>
                             <input type="text" name="banti" placeholder="番地">
                             <input type="text" name="kenntiku" size="30" placeholder="建物名">
@@ -52,31 +52,33 @@
 
                     <div class="form-row">
                         <label>学科・学年<span class="required">必須</span></label>
-                        <select>
-                            <option>学科を選択してください</option>
-                            <option>システム系学科</option>
-                            <option>ビジネス系学科</option>
-                            <option>デザイン系学科</option>
+                        学科:
+                        <select required>
+                            <option value="">学科を選択してください</option>
+                            <option value="sys">システム系学科</option>
+                            <option value="biji">ビジネス系学科</option>
+                            <option value="deza">デザイン系学科</option>
                         </select>
-                        <select>
-                            <option>学年を選択してください</option>
-                            <option>1年</option>
-                            <option>2年</option>
-                            <option>3年</option>
-                            <option>4年</option>
+                        学年:
+                        <select required>
+                            <option value="">学年を選択してください</option>
+                            <option value="1">1年</option>
+                            <option value="2">2年</option>
+                            <option value="3">3年</option>
+                            <option value="4">4年</option>
                         </select>
                     </div>
 
                     <div class="form-row">
                         <label>お得な情報・クーポン<span class="required">必須</span></label>
                         <div class="radio-group">
-                            <label><input type="radio" name="coupon" value="">受け取る </label>
-                            <label><input type="radio" name="coupon" value=""> 受け取らない</label>
+                            <label><input type="radio" name="coupon" value="uketoru">受け取る </label>
+                            <label><input type="radio" name="coupon" value="uketoranai"> 受け取らない</label>
                         </div>
                     </div>
                     <div class="form-row">
                         <label>ご意見・ご要望</label>(200文字以内でご記入ください)
-                        <textarea rows="10" cols="50" maxlength="200"></textarea>
+                        <textarea rows="10" cols="50" maxlength="200" name="text"></textarea>
                     </div>
 
                     <div class="form-row buttons">
