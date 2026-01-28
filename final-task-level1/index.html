@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>デバイスランキングサイト</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="base.css">
+    <link rel="icon" href="images/favicon (5).ico">
+    <style>
+        .anime-card img {
+            width: 100%;
+            height: 30vw;
+            max-height: 300px;
+            object-fit: cover;
+        }
+
+        .ranking-card {
+            transition: transform 0.2s ease;
+        }
+
+        .ranking-card img {
+            width: auto;
+            height: 150px;
+            object-fit: cover;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .ranking-card:hover {
+            transform: scale(1.02);
+        }
+
+        .ranking-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            opacity: 0.2;
+        }
+
+        @media (max-width: 767.98px) {
+            .anime-card img {
+                object-position: 50% 40%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ナビゲーションバー -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">
+                <i class="bi bi-film"></i> GameGear Hub
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">ホーム</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="device-list.html">デバイス一覧</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="device-ranking.html">ランキング</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="device-mylist.html">マイリスト</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="device-community.html">コミュニティ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link d-lg-none" href="device-login.html">ログイン</a>
+                    </li>
+                </ul>
+                <a href="device-login.html" class="btn btn-light ms-3 d-none d-lg-block">
+                    <i class="bi bi-person-circle"></i> ログイン</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ヒーローセクション -->
+    <div class="hero-section">
+        <video class="bg-video" autoplay muted loop playsinline>
+            <source src="images/razer-deathadder-v4-pro-esports-green_1920x700.mp4" type="video/mp4">
+        </video>
+        <div class="container text-center">
+            <h1 class="display-3 fw-bold mb-4">あなたの合うデバイスを見つけよう</h1>
+            <p class="lead mb-4">厳選された製品の中から、お気に入りのデバイスを見つけよう</p>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="input-group input-group-lg">
+                        <input type="text" class="form-control kensaku" placeholder="製品名で検索...">
+                        <button class="btn btn-light" type="button">
+                            <i class="bi bi-search"></i> 検索
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- 今期の注目作品 -->
+        <section class="mb-5">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 class="fw-bold">
+                    <i class="bi bi-star-fill text-warning"></i> 今期の注目作品
+                </h2>
+                <a href="#" class="btn btn-outline-dark">すべて見る <i class="bi bi-arrow-right"></i></a>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card anime-card position-relative">
+                        <img src="images/razer-death4.webp" class="card-img-top img-fluid" alt="razer-death4">
+                        <div class="card-body">
+                            <span class="badge bg-primary mb-2">マウス</span>
+                            <span class="badge bg-success mb-2">Razer</span>
+                            <h5 class="card-title fw-bold card-title-nowrap">Razer DeathAdder V4 Pro</h5>
+                            <p class="card-text text-muted text-clamp-3">
+                                FPSプレイヤー向けに設計された高性能ワイヤレスゲーミングマウスである、DeathAdderシリーズ伝統の右手用エルゴノミクス形状を継承しており、手のひらやつかみ持ちにフィットしやすい</i>
+                            </p>
+                            <a href="razer-deathadder.html" class="stretched-link"></a>
+                            <div
+                                class="d-flex flex-column flex-sm-row flex-md-column flex-lg-row justify-content-between align-items-start align-items-sm-center align-items-md-start align-items-lg-center">
+                                <div class="rating-stars mb-2 mb-sm-0 mb-md-2 mb-lg-0">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-half"></i>
+                                    <span class="text-dark ms-1">4.5</span>
+                                </div>
+                                <small class="text-muted">1,234件のレビュー</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card anime-card">
+                        <img src="images/zowie (2).webp" class="card-img-top" alt="zowie">
+                        <div class="card-body">
+                            <span class="badge bg-dark mb-2">モニター</span>
+                            <span class="badge bg-danger mb-2">BenQ</span>
+                            <h5 class="card-title fw-bold card-title-nowrap">ZOWIE XL2586X</h5>
+                            <p class="card-text text-muted text-clamp-3">
+                                ZOWIEは、eスポーツ競技向けに特化したゲーミングブランドであり、特にモニター分野で高い評価を受けている。ZOWIEのモニターは、画質の派手さよりも動体視認性と入力遅延の少なさを重視して設計されている点が特徴である。
+                            </p>
+                            <div
+                                class="d-flex flex-column flex-sm-row flex-md-column flex-lg-row justify-content-between align-items-start align-items-sm-center align-items-md-start align-items-lg-center">
+                                <div class="rating-stars mb-2 mb-sm-0 mb-md-2 mb-lg-0">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-half"></i>
+                                    <span class="text-dark ms-1">4.8</span>
+                                </div>
+                                <small class="text-muted">2,156件のレビュー</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card anime-card">
+                        <img src="images/80he.webp" class="card-img-top" alt="wooting">
+                        <div class="card-body">
+                            <span class="badge bg-info mb-2">キーボード</span>
+                            <span class="badge bg-secondary mb-2">Wooting</span>
+                            <h5 class="card-title fw-bold card-title-nowrap">Wooting 80he</h5>
+                            <p class="card-text text-muted text-clamp-3">Wootingは、入力の速さと正確さを極限まで追求したゲーミングキーボードである。
+                                磁気式（Hall
+                                Effect）スイッチを採用しており、キーの押し込み量に応じて入力を制御できる点が最大の特徴だ。これにより、ラピッドトリガー機能が使え、キーを少し戻すだけで即座に入力が解除されるため、FPSゲームでのストッピングや切り返し動作が非常に素早く行える。
+                            </p>
+                            <div
+                                class="d-flex flex-column flex-sm-row flex-md-column flex-lg-row justify-content-between align-items-start align-items-sm-center align-items-md-start align-items-lg-center">
+                                <div class="rating-stars mb-2 mb-sm-0 mb-md-2 mb-lg-0">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star"></i>
+                                    <span class="text-dark ms-1">4.2</span>
+                                </div>
+                                <small class="text-muted">987件のレビュー</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 人気ランキング -->
+        <section class="mb-5">
+            <!-- タブナビゲーション -->
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 class="fw-bold">
+                    <i class="bi bi-trophy-fill text-warning"></i> 人気ランキング
+                </h2>
+                <ul class="nav nav-pills" id="rankingTabTop" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="weeklyTabTop" data-bs-toggle="pill"
+                            data-bs-target="#weeklyTop" type="button" role="tab">
+                            週間
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="monthlyTabTop" data-bs-toggle="pill" data-bs-target="#monthlyTop"
+                            type="button" role="tab">
+                            月間
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="seasonalTabTop" data-bs-toggle="pill" data-bs-target="#seasonalTop"
+                            type="button" role="tab">
+                            年間
+                        </button>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- タブコンテンツ -->
+            <div class="tab-content" id="rankingTabContent">
+                <!-- 総合ランキング -->
+                <div class="tab-pane fade show active" id="weeklyTop" role="tabpanel">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="card ranking-card">
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-2 text-center">
+                                            <div class="ranking-number">1</div>
+                                        </div>
+                                        <div class="col-3">
+                                            <img src="images/gpro.webp" class="img-fluid rounded" alt="gpro">
+                                        </div>
+                                        <div class="col-7">
+                                            <span class="badge bg-warning text-dark mb-2">1位</span>
+                                            <h5 class="fw-bold mb-2 card-title-nowrap">G PRO X SUPERLIGHT 2</h5>
+                                            <p class="text-muted small mb-2 text-clamp-2">
+                                                プロゲーマー向けに設計された超軽量ワイヤレスゲーミングマウスである。前モデルの人気を引き継ぎつつ、センサー性能と応答性がさらに向上し、FPSタイトルや競技ゲームにおける高速かつ正確なエイム操作を実現している。
+                                            </p>
+                                            <div class="rating-stars small">
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-half"></i>
+                                                <span class="text-dark">4.9</span>
+                                            </div>
+                                            <small class="text-muted">3,456件のレビュー</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="card ranking-card">
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-2 text-center">
+                                            <div class="ranking-number">2</div>
+                                        </div>
+                                        <div class="col-3">
+                                            <img src="images/g640-gallery-2-new.webp" class="img-fluid rounded"
+                                                alt="g640">
+                                        </div>
+                                        <div class="col-7">
+                                            <span class="badge bg-secondary mb-2">2位</span>
+                                            <h5 class="fw-bold mb-2 card-title-nowrap">G640</h5>
+                                            <p class="text-muted small mb-2 text-clamp-2">
+                                                競技性と汎用性を両立した布製ゲーミングマウスパッドである。本製品は中〜大型サイズの操作域を確保しており、
+                                            </p>
+                                            <div class="rating-stars small">
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-half"></i>
+                                                <span class="text-dark">3.4</span>
+                                            </div>
+                                            <small class="text-muted">1,234件のレビュー</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="card ranking-card">
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-2 text-center">
+                                            <div class="ranking-number">3</div>
+                                        </div>
+                                        <div class="col-3">
+                                            <img src="images/artisan.webp" class="img-fluid rounded" alt="artisan">
+                                        </div>
+                                        <div class="col-7">
+                                            <span class="badge bg-secondary mb-2">3位</span>
+                                            <h5 class="fw-bold mb-2 card-title-nowrap">NINJA FX ゼロ</h5>
+                                            <p class="text-muted small mb-2 text-clamp-2">
+                                                高精度ゲーミングマウスパッドで、プロゲーマーや精密操作需要の高いプレイヤーに向けて設計された製品である。特殊繊維による表面…
+                                            </p>
+                                            <div class="rating-stars small">
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-half"></i>
+                                                <span class="text-dark">4.6</span>
+                                            </div>
+                                            <small class="text-muted">2,345件のレビュー</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="card ranking-card">
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-2 text-center">
+                                            <div class="ranking-number">4</div>
+                                        </div>
+                                        <div class="col-3">
+                                            <img src="images/inzone.webp" class="img-fluid rounded" alt="inzone">
+                                        </div>
+                                        <div class="col-7">
+                                            <span class="badge bg-secondary mb-2">4位</span>
+                                            <h5 class="fw-bold mb-2 card-title-nowrap">INZONE Buds</h5>
+                                            <p class="text-muted small mb-2 text-clamp-2">
+                                                PC・PS5・Switchなど幅広いゲーム環境での使用を想定して設計されている。専用のUSB-Cドングル接続により30ms以下の低遅延接続ができるため
+                                            </p>
+                                            <div class="rating-stars small">
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star"></i>
+                                                <span class="text-dark">4.4</span>
+                                            </div>
+                                            <small class="text-muted">2,025件のレビュー</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="monthlyTop" role="tabpanel">
+                    <div class="tab-pane fade show active" id="weeklyTop" role="tabpanel">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="card ranking-card">
+                                    <div class="card-body">
+                                        <div class="row align-items-center">
+                                            <div class="col-2 text-center">
+                                                <div class="ranking-number">1</div>
+                                            </div>
+                                            <div class="col-3">
+                                                <img src="images/gpro.webp" class="img-fluid rounded" alt="gpro">
+                                            </div>
+                                            <div class="col-7">
+                                                <span class="badge bg-warning text-dark mb-2">1位</span>
+                                                <h5 class="fw-bold mb-2 card-title-nowrap">G PRO X SUPERLIGHT 2</h5>
+                                                <p class="text-muted small mb-2 text-clamp-2">
+                                                    プロゲーマー向けに設計された超軽量ワイヤレスゲーミングマウスである。前モデルの人気を引き継ぎつつ、センサー性能と応答性がさらに向上し、FPSタイトルや競技ゲームにおける高速かつ正確なエイム操作を実現している。
+                                                </p>
+                                                <div class="rating-stars small">
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-half"></i>
+                                                    <span class="text-dark">4.9</span>
+                                                </div>
+                                                <small class="text-muted">3,456件のレビュー</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="card ranking-card">
+                                    <div class="card-body">
+                                        <div class="row align-items-center">
+                                            <div class="col-2 text-center">
+                                                <div class="ranking-number">2</div>
+                                            </div>
+                                            <div class="col-3">
+                                                <img src="images/inzone.webp" class="img-fluid rounded" alt="inzone">
+                                            </div>
+                                            <div class="col-7">
+                                                <span class="badge bg-secondary mb-2">2位</span>
+                                                <h5 class="fw-bold mb-2 card-title-nowrap">INZONE Buds</h5>
+                                                <p class="text-muted small mb-2 text-clamp-2">
+                                                    PC・PS5・Switchなど幅広いゲーム環境での使用を想定して設計されている。専用のUSB-Cドングル接続により30ms以下の低遅延接続ができるため
+                                                </p>
+                                                <div class="rating-stars small">
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-half"></i>
+                                                    <span class="text-dark">4.4</span>
+                                                </div>
+                                                <small class="text-muted">2,025件のレビュー</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="card ranking-card">
+                                    <div class="card-body">
+                                        <div class="row align-items-center">
+                                            <div class="col-2 text-center">
+                                                <div class="ranking-number">3</div>
+                                            </div>
+                                            <div class="col-3">
+                                                <img src="images/razer-death4.webp" class="img-fluid rounded"
+                                                    alt="artisan">
+                                            </div>
+                                            <div class="col-7">
+                                                <span class="badge bg-secondary mb-2">3位</span>
+                                                <h5 class="fw-bold mb-2 card-title-nowrap">DeathAdder V4 Pro</h5>
+                                                <p class="text-muted small mb-2 text-clamp-2">
+                                                    FPSプレイヤー向けに設計された高性能ワイヤレスゲーミングマウスである、DeathAdderシリーズ伝統の右手用エルゴノミクス形状を継承しており、
+                                                </p>
+                                                <div class="rating-stars small">
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-half"></i>
+                                                    <span class="text-dark">4.5</span>
+                                                </div>
+                                                <small class="text-muted">1,234件のレビュー</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="card ranking-card">
+                                    <div class="card-body">
+                                        <div class="row align-items-center">
+                                            <div class="col-2 text-center">
+                                                <div class="ranking-number">4</div>
+                                            </div>
+                                            <div class="col-3">
+                                                <img src="images/80he.webp" class="img-fluid rounded" alt="woothing80">
+                                            </div>
+                                            <div class="col-7">
+                                                <span class="badge bg-secondary mb-2">4位</span>
+                                                <h5 class="fw-bold mb-2 card-title-nowrap">Wooting 80he</h5>
+                                                <p class="text-muted small mb-2 text-clamp-2">
+                                                    磁気式Hall Effectスイッチ+Rapid
+                                                    Triggerで入力の深さを超細かく制御でき、反応速度と操作精度が別次元の競技向け80％ゲーミングキーボード。
+                                                </p>
+                                                <div class="rating-stars small">
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <span class="text-dark">4.6</span>
+                                                </div>
+                                                <small class="text-muted">2,345件のレビュー</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="seasonalTop" role="tabpanel">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="card ranking-card">
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-2 text-center">
+                                            <div class="ranking-number">1</div>
+                                        </div>
+                                        <div class="col-3">
+                                            <img src="images/gpro.webp" class="img-fluid rounded" alt="gpro">
+                                        </div>
+                                        <div class="col-7">
+                                            <span class="badge bg-warning text-dark mb-2">1位</span>
+                                            <h5 class="fw-bold mb-2 card-title-nowrap">G PRO X SUPERLIGHT 2</h5>
+                                            <p class="text-muted small mb-2 text-clamp-2">
+                                                プロゲーマー向けに設計された超軽量ワイヤレスゲーミングマウスである。前モデルの人気を引き継ぎつつ、センサー性能と応答性がさらに向上し、FPSタイトルや競技ゲームにおける高速かつ正確なエイム操作を実現している。
+                                            </p>
+                                            <div class="rating-stars small">
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-half"></i>
+                                                <span class="text-dark">4.9</span>
+                                            </div>
+                                            <small class="text-muted">3,456件のレビュー</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="card ranking-card">
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-2 text-center">
+                                            <div class="ranking-number">2</div>
+                                        </div>
+                                        <div class="col-3">
+                                            <img src="images/inzone.webp" class="img-fluid rounded" alt="inzone">
+                                        </div>
+                                        <div class="col-7">
+                                            <span class="badge bg-secondary mb-2">2位</span>
+                                            <h5 class="fw-bold mb-2 card-title-nowrap">INZONE Buds</h5>
+                                            <p class="text-muted small mb-2 text-clamp-2">
+                                                PC・PS5・Switchなど幅広いゲーム環境での使用を想定して設計されている。専用のUSB-Cドングル接続により30ms以下の低遅延接続ができるため
+                                            </p>
+                                            <div class="rating-stars small">
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-half"></i>
+                                                <span class="text-dark">4.4</span>
+                                            </div>
+                                            <small class="text-muted">2,025件のレビュー</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="card ranking-card">
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-2 text-center">
+                                            <div class="ranking-number">3</div>
+                                        </div>
+                                        <div class="col-3">
+                                            <img src="images/razer-death4.webp" class="img-fluid rounded" alt="artisan">
+                                        </div>
+                                        <div class="col-7">
+                                            <span class="badge bg-secondary mb-2">3位</span>
+                                            <h5 class="fw-bold mb-2 card-title-nowrap">DeathAdder V4 Pro</h5>
+                                            <p class="text-muted small mb-2 text-clamp-2">
+                                                FPSプレイヤー向けに設計された高性能ワイヤレスゲーミングマウスである、DeathAdderシリーズ伝統の右手用エルゴノミクス形状を継承しており、
+                                            </p>
+                                            <div class="rating-stars small">
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-half"></i>
+                                                <span class="text-dark">4.5</span>
+                                            </div>
+                                            <small class="text-muted">1,234件のレビュー</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="card ranking-card">
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-2 text-center">
+                                            <div class="ranking-number">4</div>
+                                        </div>
+                                        <div class="col-3">
+                                            <img src="images/gpro head.webp" class="img-fluid rounded" alt="woothing80">
+                                        </div>
+                                        <div class="col-7">
+                                            <span class="badge bg-secondary mb-2">4位</span>
+                                            <h5 class="fw-bold mb-2 card-title-nowrap">gpro x ゲーミングヘッドホン</h5>
+                                            <p class="text-muted small mb-2 text-clamp-2">
+                                                ゲーム中の足音や環境音を聞き取りやすくし、高度なBlue VO!CEマイク技術でチームチャットや配信の声
+                                            </p>
+                                            <div class="rating-stars small">
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-half"></i>
+                                                <span class="text-dark">3.7</span>
+                                            </div>
+                                            <small class="text-muted">876件のレビュー</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    </section>
+
+    <!-- ジャンル別クイックアクセス -->
+    <section class="mb-5">
+        <h2 class="fw-bold mb-4">
+            <i class="bi bi-grid-3x3-gap-fill"></i> ジャンルから探す
+        </h2>
+        <div class="row g-3">
+            <div class="col-6 col-md-3">
+                <a href="#" class="text-decoration-none">
+                    <div class="card text-center h-100 border-primary">
+                        <div class="card-body">
+                            <i class="bi bi-mouse display-4 text-primary"></i>
+                            <h5 class="mt-3">マウス</h5>
+                            <small class="text-muted">1,234作品</small>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-6 col-md-3">
+                <a href="#" class="text-decoration-none">
+                    <div class="card text-center h-100 border-danger">
+                        <div class="card-body">
+                            <i class="bi bi-keyboard display-4 text-danger"></i>
+                            <h5 class="mt-3">キーボード</h5>
+                            <small class="text-muted">222作品</small>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-6 col-md-3">
+                <a href="#" class="text-decoration-none">
+                    <div class="card text-center h-100 border-warning">
+                        <div class="card-body">
+                            <i class="bi bi-display display-4 text-warning"></i>
+                            <h5 class="mt-3">モニター</h5>
+                            <small class="text-muted">234作品</small>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-6 col-md-3">
+                <a href="#" class="text-decoration-none">
+                    <div class="card text-center h-100 border-info">
+                        <div class="card-body">
+                            <i class="bi bi-earbuds display-4 text-info"></i>
+                            <h5 class="mt-3">ヘッドホン</h5>
+                            <small class="text-muted">678作品</small>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    </div>
+
+    <!-- フッター -->
+    <footer class="py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <h5 class="fw-bold mb-3"><i class="bi bi-film"></i> GameGear Hub</h5>
+                    <p class="text-light">あなたの好きなデバイスを見つけて、共有しよう。</p>
+                </div>
+                <div class="col-md-2 mb-3">
+                    <h6 class="fw-bold mb-3">サイト情報</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-light text-decoration-none">About</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">利用規約</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">プライバシー</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 mb-3">
+                    <h6 class="fw-bold mb-3">サポート</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-light text-decoration-none">ヘルプ</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">お問い合わせ</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h6 class="fw-bold mb-3">フォローする</h6>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-light"><i class="bi bi-twitter fs-4"></i></a>
+                        <a href="#" class="text-light"><i class="bi bi-instagram fs-4"></i></a>
+                        <a href="#" class="text-light"><i class="bi bi-youtube fs-4"></i></a>
+                        <a href="#" class="text-light"><i class="bi bi-discord fs-4"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-light">
+            <p class="text-center text-light mb-0">&copy; 2025 GameGear Hub
+                . All rights reserved.</p>
+        </div>
+    </footer>
+    <button id="backToTopBtn" class="btn shadow d-flex align-items-center justify-content-center">
+        <i class="bi bi-chevron-up"></i>
+    </button>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="common.js"></script>
+</body>
+
+</html>

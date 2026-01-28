@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>マイリスト </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="base.css">
+    <link rel="icon" href="images/favicon (5).ico">
+    <style>
+        .stat-card {
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .anime-table-card {
+            transition: all 0.2s ease;
+        }
+
+        .anime-table-card:hover {
+            background-color: #f8f9fa;
+        }
+
+        .anime-thumbnail {
+            width: 80px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .progress-custom {
+            height: 20px;
+        }
+
+        .tab-content {
+            min-height: 400px;
+        }
+
+        .nav-pills .nav-link#watching-tab.active {
+            background-color: var(--viewing-color);
+            color: #fff;
+        }
+
+        .nav-pills .nav-link#completed-tab.active {
+            background-color: var(--completed-color);
+            color: #fff;
+        }
+
+        .nav-pills .nav-link#plantowatch-tab.active {
+            background-color: var(--planned-color);
+            color: #fff;
+        }
+
+        .nav-pills .nav-link#dropped-tab.active {
+            background-color: var(--paused-color);
+            color: #fff;
+        }
+
+        table {
+            min-width: 676px;
+        }
+
+        @media (max-width: 767px) {
+
+            /* sm以下 */
+            #myTab .nav-link {
+                font-size: 0.75rem;
+                white-space: nowrap;
+            }
+        }
+
+        /* スマホサイズ */
+        @media (max-width: 575px) {
+
+            #myTab .nav-link {
+                font-size: 0.75rem;
+                padding: 0.5rem 0.4rem;
+                white-space: nowrap;
+            }
+
+            #myTab .nav-link i {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ナビゲーションバー -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="bi bi-film"></i> GameGear Hub
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">ホーム</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="device-list.html">デバイス一覧</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="device-ranking.html">ランキング</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">マイリスト</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="device-community.html">コミュニティ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link d-lg-none" href="device-login.html">ログイン</a>
+                    </li>
+                </ul>
+                <a href="device-login.html" class="btn btn-light ms-3 d-none d-lg-block">
+                    <i class="bi bi-person-circle"></i> ログイン</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ページヘッダー -->
+    <div class="page-heading">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-3">
+                <i class="bi bi-star-fill"></i> マイリスト
+            </h1>
+            <p class="lead">あなたの購入商品と利用状況を管理しよう</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- 統計カード -->
+        <div class="row g-4 mb-5">
+            <div class="col-md-3">
+                <div class="card stat-card border-primary">
+                    <div class="card-body text-center">
+                        <i class="bi bi-heart-fill text-primary display-4 mb-3"></i>
+                        <h3 class="fw-bold mb-1">12</h3>
+                        <p class="text-muted mb-0">使用中</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card stat-card border-success">
+                    <div class="card-body text-center">
+                        <i class="bi bi-check-circle-fill text-success display-4 mb-3"></i>
+                        <h3 class="fw-bold mb-1">45</h3>
+                        <p class="text-muted mb-0">所有済み</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card stat-card border-warning">
+                    <div class="card-body text-center">
+                        <i class="bi bi-calendar-check-fill text-warning display-4 mb-3"></i>
+                        <h3 class="fw-bold mb-1">2</h3>
+                        <p class="text-muted mb-0">購入予定</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card stat-card border-danger">
+                    <div class="card-body text-center">
+                        <i class="bi bi-cash-coin text-danger display-4 mb-3"></i>
+                        <h3 class="fw-bold mb-1">4</h3>
+                        <p class="text-muted mb-0">売却・未使用</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- タブナビゲーション -->
+        <ul class="nav nav-pills nav-fill mb-4" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="watching-tab" data-bs-toggle="pill" data-bs-target="#watching"
+                    type="button" role="tab">
+                    <i class="bi bi-play-circle"></i>
+                    <span class="d-none d-sm-inline">使用中 (12)</span>
+                    <span class="d-inline d-sm-none">使用中</span>
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="completed-tab" data-bs-toggle="pill" data-bs-target="#completed"
+                    type="button" role="tab">
+                    <i class="bi bi-check-circle"></i>
+                    <span class="d-none d-sm-inline">所有済み (45)</span>
+                    <span class="d-inline d-sm-none">所有済み</span>
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="plantowatch-tab" data-bs-toggle="pill" data-bs-target="#plantowatch"
+                    type="button" role="tab">
+                    <i class="bi bi-calendar-check-fill"></i>
+                    <span class="d-none d-sm-inline">購入予定 (2)</span>
+                    <span class="d-inline d-sm-none">購入予定</span>
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="dropped-tab" data-bs-toggle="pill" data-bs-target="#dropped" type="button"
+                    role="tab">
+                    <i class="bi bi-x-circle"></i>
+                    <span class="d-none d-sm-inline">売却・未使用 (4)</span>
+                    <span class="d-inline d-sm-none">売却・未使用</span>
+                </button>
+            </li>
+        </ul>
+
+        <!-- タブコンテンツ -->
+        <div class="tab-content" id="myTabContent">
+            <!-- 視聴中タブ -->
+            <div class="tab-pane fade show active" id="watching" role="tabpanel">
+                <div class="card mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0"><i class="bi bi-heart-fill"></i> 使用中のデバイス</h5>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive-md">
+                            <table class="table table-hover mb-0">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th style="width: 100px;">デバイス</th>
+                                        <th></th>
+                                        <th style="width: 170px;">評価</th>
+                                        <th style="width: 180px;">使用頻度</th>
+                                        <th style="width: 150px;">購入日</th>
+                                        <th style="width: 100px;">操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="anime-table-card">
+                                        <td>
+                                            <img src="images/atk.webp" class="anime-thumbnail" alt="atk">
+                                        </td>
+                                        <td>
+                                            <h6 class="mb-1 fw-bold text-clamp-2">atk f1 extreme</h6>
+                                            <div>
+                                                <span class="badge bg-primary status-badge">マウス</span>
+                                                <span class="badge bg-success status-badge">販売中</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="rating-stars">
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                            </div>
+                                            <small class="text-muted">4.0</small>
+                                        </td>
+                                        <td>
+                                            <div class="progress progress-custom">
+                                                <div class="progress-bar bg-primary" style="width: 86%">高</div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <small class="text-muted">2025/3/15</small>
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary" title="詳細">
+                                                <i class="bi bi-eye"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-danger" title="削除">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="anime-table-card">
+                                        <td>
+                                            <img src="images/rainy.webp" class="anime-thumbnail" alt="rainy">
+                                        </td>
+                                        <td>
+                                            <h6 class="mb-1 fw-bold text-clamp-2">Rainy75 pro</h6>
+                                            <div>
+                                                <span class="badge bg-info status-badge">キーボード</span>
+                                                <span class="badge bg-success status-badge">販売中</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="rating-stars">
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-half"></i>
+                                            </div>
+                                            <small class="text-muted">3.5</small>
+                                        </td>
+                                        <td>
+                                            <div class="progress progress-custom">
+                                                <div class="progress-bar bg-danger" style="width: 60%">中</div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <small class="text-muted">2025/1/4</small>
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary" title="詳細">
+                                                <i class="bi bi-eye"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-danger" title="削除">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="anime-table-card">
+                                        <td>
+                                            <img src="images/99.webp" class="anime-thumbnail" alt="artisan">
+                                        </td>
+                                        <td>
+                                            <h6 class="mb-1 fw-bold text-clamp-2">NINJA FX 99式</h6>
+                                            <div>
+                                                <span class="badge bg-dark status-badge">マウスパッド</span>
+                                                <span class="badge bg-success status-badge">販売中</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="rating-stars">
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star"></i>
+                                            </div>
+                                            <small class="text-muted">4.2</small>
+                                        </td>
+                                        <td>
+                                            <div class="progress progress-custom">
+                                                <div class="progress-bar bg-info" style="width: 90%">高</div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <small class="text-muted">2025/3/14</small>
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary" title="詳細">
+                                                <i class="bi bi-eye"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-danger" title="削除">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="anime-table-card">
+                                        <td>
+                                            <img src="images/inzone.webp" class="anime-thumbnail" alt="inzone">
+                                        </td>
+                                        <td>
+                                            <h6 class="mb-1 fw-bold text-clamp-2">INZONE Buds</h6>
+                                            <div>
+                                                <span class="badge bg-success status-badge">イヤホン</span>
+                                                <span class="badge bg-success status-badge">販売中</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="rating-stars">
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-half"></i>
+                                            </div>
+                                            <small class="text-muted">4.6</small>
+                                        </td>
+                                        <td>
+                                            <div class="progress progress-custom">
+                                                <div class="progress-bar bg-success" style="width: 83%">高</div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <small class="text-muted">2026/1/1</small>
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary" title="詳細">
+                                                <i class="bi bi-eye"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-danger" title="削除">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 視聴済みタブ -->
+            <div class="tab-pane fade" id="completed" role="tabpanel">
+                <div class="card mb-4">
+                    <div class="card-header bg-success text-white">
+                        <h5 class="mb-0"><i class="bi bi-check-circle-fill"></i> 購入済みのデバイス</h5>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive-md">
+                            <table class="table table-hover mb-0">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th style="width: 100px;">デバイス</th>
+                                        <th></th>
+                                        <th style="width: 150px;">あなたの評価</th>
+                                        <th style="width: 150px;">購入日</th>
+                                        <th style="width: 100px;">操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="anime-table-card">
+                                        <td>
+                                            <img src="images/gsr.webp" class="anime-thumbnail" alt="gsr">
+                                        </td>
+                                        <td>
+                                            <h6 class="mb-1 fw-bold text-clamp-2">ZOWIE G-SR-SE</h6>
+                                            <div>
+                                                <span class="badge bg-dark status-badge">マウスパッド</span>
+                                                <span class="badge bg-success status-badge">販売中</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="rating-stars">
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-half"></i>
+                                            </div>
+                                            <small class="text-muted">3.5</small>
+                                        </td>
+                                        <td>
+                                            <small class="text-muted">2024/11/01</small>
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary" title="詳細">
+                                                <i class="bi bi-eye"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-danger" title="削除">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="anime-table-card">
+                                        <td>
+                                            <img src="images/hyperx.webp" class="anime-thumbnail" alt="hyperx">
+                                        </td>
+                                        <td>
+                                            <h6 class="mb-1 fw-bold text-clamp-2">HyperX QuadCast</h6>
+                                            <div>
+                                                <span class="badge bg-dark status-badge">マイク</span>
+                                                <span class="badge bg-success status-badge">販売中</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="rating-stars">
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star"></i>
+                                            </div>
+                                            <small class="text-muted">4.2</small>
+                                        </td>
+                                        <td>
+                                            <small class="text-muted">2025/8/25</small>
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary" title="詳細">
+                                                <i class="bi bi-eye"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-danger" title="削除">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="anime-table-card">
+                                        <td>
+                                            <img src="images/gpro.webp" class="anime-thumbnail" alt="gpro">
+                                        </td>
+                                        <td>
+                                            <h6 class="mb-1 fw-bold text-clamp-2">G PRO X SUPERLIGHT 2</h6>
+                                            <div>
+                                                <span class="badge bg-primary status-badge">マウス</span>
+                                                <span class="badge bg-success status-badge">販売中</span>
+                                                <span class="badge bg-warning text-dark status-badge">人気</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="rating-stars">
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-half"></i>
+                                            </div>
+                                            <small class="text-muted">4.5</small>
+                                        </td>
+                                        <td>
+                                            <small class="text-muted">2024/10/15</small>
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary" title="詳細">
+                                                <i class="bi bi-eye"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-danger" title="削除">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 視聴予定タブ -->
+            <div class="tab-pane fade" id="plantowatch" role="tabpanel">
+                <div class="card mb-4">
+                    <div class="card-header bg-warning text-dark">
+                        <h5 class="mb-0"><i class="bi bi-clock-fill"></i> 購入予定のデバイス</h5>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive-md">
+                            <table class="table table-hover mb-0">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th style="width: 100px;">デバイス<th>
+                                        <th style="width: 150px;">平均評価</th>
+                                        <th style="width: 150px;">追加日</th>
+                                        <th style="width: 100px;">操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="anime-table-card">
+                                        <td>
+                                            <img src="images/wallhack.webp" class="anime-thumbnail" alt="wallhack">
+                                        </td>
+                                        <td>
+                                            <h6 class="mb-1 fw-bold text-clamp-2">EVANGELION X WALLHACK</h6>
+                                            <div>
+                                                <span class="badge bg-dark status-badge">マウスパッド</span>
+                                                <span class="badge bg-secondary status-badge">発売予定</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="rating-stars">
+                                                <i class="bi bi-star"></i>
+                                                <i class="bi bi-star"></i>
+                                                <i class="bi bi-star"></i>
+                                                <i class="bi bi-star"></i>
+                                                <i class="bi bi-star"></i>
+                                            </div>
+                                            <small class="text-muted">???</small>
+                                        </td>
+                                        <td>
+                                            <small class="text-muted">2026/1/28</small>
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary" title="詳細">
+                                                <i class="bi bi-eye"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-danger" title="削除">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="anime-table-card">
+                                        <td>
+                                            <img src="images//woothing.webp" class="anime-thumbnail" alt="wooting">
+                                        </td>
+                                        <td>
+                                            <h6 class="mb-1 fw-bold text-clamp-2">wooting 60he</h6>
+                                            <div>
+                                                <span class="badge status-badge bg-info">キーボード</span>
+                                                <span class="badge bg-success status-badge">販売中</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="rating-stars">
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                            </div>
+                                            <small class="text-muted">4.0</small>
+                                        </td>
+                                        <td>
+                                            <small class="text-muted">2024/12/25</small>
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary" title="詳細">
+                                                <i class="bi bi-eye"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-danger" title="削除">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 視聴中断タブ -->
+            <div class="tab-pane fade" id="dropped" role="tabpanel">
+                <div class="card mb-4">
+                    <div class="card-header bg-danger text-white">
+                        <h5 class="mb-0"><i class="bi bi-x-circle-fill"></i> 売却・未使用のデバイス</h5>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive-md">
+                            <table class="table table-hover mb-0">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th style="width: 100px;">デバイス</th>
+                                        <th></th>
+                                        <th style="width: 150px;">購入日</th>
+                                        <th style="width: 150px;">売却日</th>
+                                        <th style="width: 100px;">操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="anime-table-card">
+                                        <td>
+                                            <img src="images/apex pro mini.webp" class="anime-thumbnail" alt="apex">
+                                        </td>
+                                        <td>
+                                            <h6 class="mb-1 fw-bold text-clamp-2">Apex Pro Mini</h6>
+                                            <div>
+                                                <span class="badge bg-info status-badge">キーボード</span>
+                                                <span class="badge bg-secondary status-badge">販売中
+                                                </span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <small class="text-muted">2023/2/23</small>
+                                        </td>
+                                        <td>
+                                            <small class="text-muted">2024/12/12</small>
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary" title="詳細">
+                                                <i class="bi bi-eye"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-danger" title="削除">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="anime-table-card">
+                                        <td>
+                                            <img src="images/finalmouse.webp" class="anime-thumbnail" alt="finalmouse">
+                                        </td>
+                                        <td>
+                                            <h6 class="mb-1 fw-bold text-clamp-2">Finalmouse Ultralight Pro</h6>
+                                            <div>
+                                                <span class="badge bg-primary status-badge">マウス</span>
+                                                <span class="badge bg-info status-badge">販売終了</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <small class="text-muted">2022/2/22</small>
+                                        </td>
+                                        <td>
+                                            <small class="text-muted">2023/5/25</small>
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary" title="詳細">
+                                                <i class="bi bi-eye"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-danger" title="削除">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- 購入統計 -->
+        <div class="row mb-5">
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-header bg-light">
+                        <h5 class="mb-0"><i class="bi bi-graph-up"></i> 購入統計</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-4">
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>マイリスト</span>
+                                <strong>88</strong>
+                            </div>
+                            <div class="progress" style="height: 25px;">
+                                <div class="progress-bar bg-primary" style="width: 14%">
+                                    <small>使用中 12</small>
+                                </div>
+                                <div class="progress-bar bg-success" style="width: 65%">
+                                    <small>購入済み 45</small>
+                                </div>
+                                <div class="progress-bar bg-warning" style="width: 10%">
+                                    <small>購入予定 2</small>
+                                </div>
+                                <div class="progress-bar bg-danger" style="width: 16%">
+                                    <small>売却 4</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <div class="row text-center">
+                            <div class="col-6 mb-3">
+                                <h4 class="text-primary fw-bold">88</h4>
+                                <small class="text-muted">総購入数</small>
+                            </div>
+                            <div class="col-6 mb-3">
+                                <h4 class="text-success fw-bold">640</h4>
+                                <small class="text-muted">平均使用時間</small>
+                            </div>
+                            <div class="col-6">
+                                <h4 class="text-warning fw-bold">4.3</h4>
+                                <small class="text-muted">平均評価</small>
+                            </div>
+                            <div class="col-6">
+                                <h4 class="text-info fw-bold">18</h4>
+                                <small class="text-muted">レビュー投稿数</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-header bg-light">
+                        <h5 class="mb-0"><i class="bi bi-pie-chart-fill"></i> ジャンル別統計</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between mb-2">
+                                <span><span class="badge bg-primary">マウス</span></span>
+                                <strong>28</strong>
+                            </div>
+                            <div class="progress" style="height: 20px;">
+                                <div class="progress-bar bg-primary" style="width: 32%">32%</div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between mb-2">
+                                <span><span class="badge bg-dark">マウスパッド</span></span>
+                                <strong>22</strong>
+                            </div>
+                            <div class="progress" style="height: 20px;">
+                                <div class="progress-bar bg-dark" style="width: 25%">25%</div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between mb-2">
+                                <span><span class="badge bg-warning text-dark">イヤホン</span></span>
+                                <strong>18</strong>
+                            </div>
+                            <div class="progress" style="height: 20px;">
+                                <div class="progress-bar bg-warning" style="width: 20%">20%</div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between mb-2">
+                                <span><span class="badge bg-info">キーボード</span></span>
+                                <strong>12</strong>
+                            </div>
+                            <div class="progress" style="height: 20px;">
+                                <div class="progress-bar bg-info" style="width: 14%">14%</div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between mb-2">
+                                <span><span class="badge bg-secondary">その他</span></span>
+                                <strong>8</strong>
+                            </div>
+                            <div class="progress" style="height: 20px;">
+                                <div class="progress-bar bg-secondary" style="width: 9%">9%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- フッター -->
+    <footer class="py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <h5 class="fw-bold mb-3"><i class="bi bi-film"></i> GameGear Hub</h5>
+                    <p class="text-light">あなたの好きなデバイスを見つけて、共有しよう。</p>
+                </div>
+                <div class="col-md-2 mb-3">
+                    <h6 class="fw-bold mb-3">サイト情報</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-light text-decoration-none">About</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">利用規約</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">プライバシー</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 mb-3">
+                    <h6 class="fw-bold mb-3">サポート</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-light text-decoration-none">ヘルプ</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">お問い合わせ</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h6 class="fw-bold mb-3">フォローする</h6>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-light"><i class="bi bi-twitter fs-4"></i></a>
+                        <a href="#" class="text-light"><i class="bi bi-instagram fs-4"></i></a>
+                        <a href="#" class="text-light"><i class="bi bi-youtube fs-4"></i></a>
+                        <a href="#" class="text-light"><i class="bi bi-discord fs-4"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-light">
+            <p class="text-center text-light mb-0">&copy; 2025 GameGear Hub. All rights reserved.</p>
+        </div>
+    </footer>
+    <button id="backToTopBtn" class="btn shadow d-flex align-items-center justify-content-center">
+        <i class="bi bi-chevron-up"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="common.js"></script>
+</body>
+
+</html>
